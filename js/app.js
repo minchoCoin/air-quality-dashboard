@@ -18,7 +18,7 @@ function visualizefutureinfo(response) {
     let humidity = [];
     for (var i = 0; i < 3; ++i) {
         let forecastinfo = response.forecast.forecastday[i].hour
-            forecastinfo.forEach((item, index) => {
+        forecastinfo.forEach((item, index) => {
             hour.push(item.time);
             temp.push(item.temp_c);
             humidity.push(item.humidity);
@@ -86,6 +86,84 @@ function visualizefutureinfo(response) {
 
     new Chart(document.getElementById('tempchart'), templineconfig);
     new Chart(document.getElementById('humiditychart'), humiditylineconfig);
+}
+function visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index) {
+    let mydata = [pm10, pm25, co, no2, o3, so2]
+    let label = ['pm10', 'pm2.5', 'co', 'no2', 'o3', 'so2']
+
+    let color;
+
+    if(gb_defra_index<=3){
+        color = 'green';
+    }
+    else if(gb_defra_index<=6){
+        color='orange'
+    }
+    else{
+        color='red'
+    }
+
+    const data = {
+        labels: label,
+        datasets: [
+            {
+                label: 'airquality',
+                data: mydata,
+                borderColor: color,
+                backgroundColor:color
+            },
+
+        ]
+    };
+    const barconfig = {
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'levels of air quality'
+                }
+            }
+        },
+    };
+
+    const doughnutdata = {
+        labels: label,
+        datasets: [
+            {
+                label: 'airquality',
+                data: mydata,
+                
+
+            },
+
+        ]
+    };
+    const doughnutconfig = {
+        type: 'doughnut',
+        data: doughnutdata,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Distrubute of air pollution'
+            }
+          }
+        },
+      };
+
+    new Chart(document.getElementById('airqualitybarchart'), barconfig);
+    new Chart(document.getElementById('airqualitydoughnutchart'), doughnutconfig);
+
 }
 function getfutureinfo() {
     $.ajax({
@@ -178,6 +256,7 @@ function updatecurrentdata(response) {
     $("#currentso2").text(so2);
 
     updatecurrentairquality(gb_defra_index);
+    visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index);
 }
 
 function getcurrentinfo() {
