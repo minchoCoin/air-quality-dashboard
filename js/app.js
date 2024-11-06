@@ -196,7 +196,7 @@ function location_err(err) {
 
 
 function updatecurrentairquality(gb_defra_index) {
-    $("currentairqualityicon").removeClass('fa-face-smile fa-face-meh fa-face-frown');
+    $("currentairqualityicon").removeClass("fa-face-smile fa-face-meh fa-face-frown");
     if (gb_defra_index <= 3) {
         $("#currentairqualityicon").addClass('fa-face-smile');
         $("#currentairquality").text('Good Air!');
@@ -227,7 +227,7 @@ function updatecurrentdata(response) {
     let condition_text = response.current.condition.text;
     let condition_icon = response.current.condition.icon;
     let humidity = response.current.humidity;
-    let wind_mph = response.current.wind_mph;
+    let wind_kph = response.current.wind_kph;
     let wind_dir = response.current.wind_dir;
     let feelslike_c = response.current.feelslike_c;
 
@@ -247,7 +247,7 @@ function updatecurrentdata(response) {
 
     $("#currentfeelslike").html(`${feelslike_c}&deg;C`);
     $("#currenthumidity").text(`${humidity}%`);
-    $("#currentwind").text(`${wind_dir}. ${wind_mph}kph`);
+    $("#currentwind").text(`${wind_dir}. ${wind_kph}kph`);
     $("#currentpm10").text(pm10);
     $("#currentpm2_5").text(pm25);
     $("#currentco").text(co);
