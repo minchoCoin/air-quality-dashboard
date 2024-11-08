@@ -131,6 +131,10 @@ you can check the information of air pollutions.
 - [chart.js 4.4.1](https://www.chartjs.org/)
 - [papaparse 5.4.1](https://www.papaparse.com/)
 
+# fonts 
+- [Dynapuff](https://fonts.google.com/specimen/DynaPuff): title and logo
+- [Roboto](https://fonts.google.com/specimen/Roboto): other contents except title
+
 # references
 - [WeatherAPI docs](https://www.weatherapi.com/docs/)
 - [css tutorial](https://www.w3schools.com/css/)
