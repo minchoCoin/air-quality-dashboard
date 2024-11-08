@@ -210,11 +210,54 @@ function updatecurrentairquality(gb_defra_index) {
         $("#currentairqualityicon").css({ 'color': 'orange' });
         $("#currentairquality").css({ 'color': 'orange' });
     }
-    else {
+    else if(gb_defra_index<=9) {
         $("#currentairqualityicon").addClass('fa-face-frown');
         $("#currentairquality").text('Unhealthy');
         $("#currentairqualityicon").css({ 'color': 'red' });
         $("#currentairquality").css({ 'color': 'red' });
+    }
+    else{
+        $("#currentairqualityicon").addClass('fa-face-dizzy');
+        $("#currentairquality").text('Dangerous');
+        $("#currentairqualityicon").css({ 'color': 'purple' });
+        $("#currentairquality").css({ 'color': 'purple' });
+    }
+}
+function updatecurrentpm(pm10,pm25){
+    //https://www.airgwangsan.kr/page/?site=airmap&mn=854
+    //$("#currentpm10").text(pm10);
+    //$("#currentpm2_5").text(pm25);
+    /*
+    pm10
+    good: 0-30, moderate: 31-80, bad: 81-150, very bad: 151-
+
+    pm25
+    good: 0-15, moderate: 16-50, bad: 51-100, very bad: 100-
+    */
+    if(pm10<=30){
+        $("#currentpm10").css({'color':'blue'});
+    }
+    else if(pm10<=80){
+        $("#currentpm10").css({'color':'green'});
+    }
+    else if(pm10<=150){
+        $("#currentpm10").css({'color':'orange'});
+    }
+    else{
+        $("#currentpm10").css({'color':'red'});
+    }
+
+    if(pm25<=15){
+        $("#currentpm2_5").css({'color':'blue'});
+    }
+    else if(pm25<=50){
+        $("#currentpm2_5").css({'color':'green'});
+    }
+    else if(pm25<=100){
+        $("#currentpm2_5").css({'color':'orange'});
+    }
+    else{
+        $("#currentpm2_5").css({'color':'red'});
     }
 }
 function updatecurrentdata(response) {
@@ -256,6 +299,7 @@ function updatecurrentdata(response) {
     $("#currentso2").text(so2);
 
     updatecurrentairquality(gb_defra_index);
+    updatecurrentpm(pm10,pm25);
     visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index);
 }
 
