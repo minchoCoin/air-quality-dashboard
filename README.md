@@ -21,6 +21,9 @@ const config = {
 ## double click index.html and check air quality
 double click index.html and check air quality.
 
+# demo video
+[![Video Label](http://img.youtube.com/vi/kOraezyESy4/0.jpg)](https://youtu.be/kOraezyESy4?t=0s)
+
 # features
 ## real-time air quality monitoring
 ![image](markdownimage/2.png)
