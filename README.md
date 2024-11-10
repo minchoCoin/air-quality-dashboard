@@ -9,7 +9,7 @@ git clone https://github.com/minchoCoin/air-quality-dashboard.git
 ## generate API key
 you can generate api key on [https://www.weatherapi.com/](https://www.weatherapi.com/). after sign up and login, you can check the your api key on weatherapi mypage.
 
-![image](markdownimage\1.png)
+![image](markdownimage/1.png)
 
 ## generate key.js in js folder.
 generate key.js in js folder. the content of the key.js is:
@@ -23,10 +23,10 @@ double click index.html and check air quality.
 
 # features
 ## real-time air quality monitoring
-![image](markdownimage\2.png)
+![image](markdownimage/2.png)
 
 If you click on index.html, your browser will ask if you allow it to access your location. if you clicked 'Allow', you can view real-time air quality data like this:
-![image](markdownimage\3.png)
+![image](markdownimage/3.png)
 ### you can check information
 1. your location(city, country)
 2. last-updated time
@@ -46,11 +46,11 @@ If you click on index.html, your browser will ask if you allow it to access your
 ### current total air quality level
 current total air quality level is one of good(green), moderate(orange), unhealthy(red), and dangerous(purple). this level come from gb_defra_index: good air for 1-3 gb_defra_index, moderate air for 4-6 and bad for 7-9, very bad for 10.
 
-![image](markdownimage\4.png)
-![image](markdownimage\5.png)
+![image](markdownimage/4.png)
+![image](markdownimage/5.png)
 
-![image](markdownimage\6.png)
-![image](markdownimage\7.png)
+![image](markdownimage/6.png)
+![image](markdownimage/7.png)
 
 ### text color of pm10 and pm2.5
 [https://www.airgwangsan.kr/page/?site=airmap&mn=854](https://www.airgwangsan.kr/page/?site=airmap&mn=854)
@@ -62,37 +62,37 @@ text color of pm10 and pm2.5 represent the level of the fine dust level.
 | pm2.5 | 0-15 | 16-50    | 51-100 | 101-     |
 
 the text color of 'good' is blue, 'moderate' is green, 'bad' is orange, 'very bad' is red.
-![image](markdownimage\8.png)
-![image](markdownimage\9.png)
-![image](markdownimage\10.png)
-![image](markdownimage\11.png)
+![image](markdownimage/8.png)
+![image](markdownimage/9.png)
+![image](markdownimage/10.png)
+![image](markdownimage/11.png)
 
 ### chart
 #### temperature chart
 you can check temperature change from today to 3 days later forecast by the hour.
-![image](markdownimage\12.png)
+![image](markdownimage/12.png)
 
 you can check values of the chart.
 
-![image](markdownimage\13.png)
+![image](markdownimage/13.png)
 
 #### humidity chart
 you can check humidity change from today to 3 days later forecast by the hour.
-![image](markdownimage\14.png)
+![image](markdownimage/14.png)
 you can check values of the chart.
 
 #### air pollutions bar chart
 you can check the levels of PM10, PM2.5, CO, NO2, SO2 and O3.
 the color of the bar chart is the color of total air quality level.
-![image](markdownimage\15.png)
+![image](markdownimage/15.png)
 
 #### air pollutions doughnut chart
 you can check the distribution of PM10, PM2.5, CO, NO2, SO2 and O3.
-![image](markdownimage\16.png)
+![image](markdownimage/16.png)
 
 ## CSV
 if you clicked 'CSV' on the menu bar, you can page like this
-![image](markdownimage\17.png)
+![image](markdownimage/17.png)
 you can upload CSV file, and the page parsing the csv and shows the weather and air quality. parsing library is papaparse.
 
 csv file format is:
@@ -120,7 +120,7 @@ Other features is same as 'real-time air quality monitor' page except air pollut
 
 ## about
 you can check the information of air pollutions.
-![image](markdownimage\18.png)
+![image](markdownimage/18.png)
 
 # css bootstrap
 - [w3 css](https://www.w3schools.com/w3css/defaulT.asp)
