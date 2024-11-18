@@ -167,7 +167,7 @@ function visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index) {
 }
 function getfutureinfo() {
     $.ajax({
-        url: `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location1}&days=3&aqi=no&alerts=no`,
+        url: `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location1}&days=3&aqi=no&alerts=no`,
         type: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -305,7 +305,7 @@ function updatecurrentdata(response) {
 
 function getcurrentinfo() {
     $.ajax({
-        url: `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location1}&aqi=yes`,
+        url: `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location1}&aqi=yes`,
         type: 'GET',
         dataType: 'json',
         success: function (response) {
