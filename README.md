@@ -2,7 +2,7 @@
 Air quality monitoring dashboard for term project of Web Application Programming lecture.
 
 # webpage
-[https://minchocoin.github.io/air-quality-dashboard/](https://minchocoin.github.io/air-quality-dashboard/)
+[https://staging.d3ksq6kwsws80c.amplifyapp.com/](https://staging.d3ksq6kwsws80c.amplifyapp.com/)
 
 # How to run?
 ## download this code
