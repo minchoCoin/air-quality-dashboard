@@ -1,8 +1,10 @@
 # air-quality-dashboard
 Air quality monitoring dashboard for term project of Web Application Programming lecture.
 
+We use [FreeWeatherAPI](https://www.weatherapi.com/) for getting the weather and air quality data
+
 # webpage
-[https://staging.d3ksq6kwsws80c.amplifyapp.com/](https://staging.d3ksq6kwsws80c.amplifyapp.com/)
+[https://minchocoin.github.io/air-quality-dashboard/](https://minchocoin.github.io/air-quality-dashboard/)
 
 # How to run?
 ## download this code
@@ -25,7 +27,7 @@ const config = {
 double click index.html and check air quality.
 
 # demo video
-[![Video Label](http://img.youtube.com/vi/VFPmD9clYjk/0.jpg)](https://youtu.be/VFPmD9clYjk?t=0s)
+[![Video Label](http://img.youtube.com/vi/U5RVZ2e5PyU/0.jpg)](https://youtu.be/U5RVZ2e5PyU)
 
 # features
 ## real-time air quality monitoring
@@ -49,6 +51,12 @@ If you click on index.html, your browser will ask if you allow it to access your
     - O3(ppb)
     - NO2(ppb)
     - SO2(ppb)
+### air quality map
+you can check the air quality map(blue regions have better air quality(pm10))
+
+![image](markdownimage/19.png)
+
+(powered by [earth nullschool](https://earth.nullschool.net/))
 ### current total air quality level
 current total air quality level is one of good(green), moderate(orange), unhealthy(red), and dangerous(purple). this level come from gb_defra_index: good air for 1-3 gb_defra_index, moderate air for 4-6 and bad for 7-9, very bad for 10.
 
@@ -73,6 +81,17 @@ the text color of 'good' is blue, 'moderate' is green, 'bad' is orange, 'very ba
 ![image](markdownimage/10.png)
 ![image](markdownimage/11.png)
 
+### download 3 day forecast data csv file
+if you click 'download' button, you can download the weather information from today to 3days later forecast by hour
+
+![image](markdownimage/20.png)
+![image](markdownimage/21.png)
+
+The weather information contains time,city, country, temperature(celsius), humidity, wind_kph, wind_dir, pressure_mb, feelslike temperature, and uv
+
+![image](markdownimage/22.png)
+
+(note: air quality forecast data is not available for free API user)
 ### chart
 #### temperature chart
 you can check temperature change from today to 3 days later forecast by the hour.
@@ -97,7 +116,7 @@ you can check the distribution of PM10, PM2.5, CO, NO2, SO2 and O3.
 ![image](markdownimage/16.png)
 
 ## CSV
-if you clicked 'CSV' on the menu bar, you can page like this
+if you clicked 'CSV' on the menu bar, the page is shown like this:
 ![image](markdownimage/17.png)
 you can upload CSV file, and the page parsing the csv and shows the weather and air quality. parsing library is papaparse.
 
@@ -124,9 +143,27 @@ time, temperature, humidity columns is required for all rows. cityname and count
 
 Other features is same as 'real-time air quality monitor' page except air pollutions are PM10, PM2.5, CO2, NOx, NH3, SO2, VOC.
 
+## Weather by city
+you can search weather information of various cities.
+1. type the city in the textbox
+2. click the submit button
+3. the page is refreshed and the information will be shown.
+
+![image](markdownimage/23.png)
+![image](markdownimage/24.png)
+
 ## about
 you can check the information of air pollutions.
 ![image](markdownimage/18.png)
+
+## success
+1. get realtime weather and air quality data using API.
+2. draw charts
+3. show airquality map
+4. download the weather forecast csv file.
+
+## fail
+1. making mobile version website
 
 # css bootstrap
 - [w3 css](https://www.w3schools.com/w3css/defaulT.asp)
