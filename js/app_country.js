@@ -11,13 +11,17 @@ const co_ppm = 1.15 * 1000;
 const no2_ppb = 1.88;
 const o3_ppb = 1.96;
 const so2_ppb = 2.62;
+
+let tempchart = null;
+let humiditychart = null;
+let barchart = null;
+let doughnutchart = null;
+
 function visualizefutureinfo(response) {
 
     let hour = [];
     let temp = [];
     let humidity = [];
-    let pm10 = [];
-    let pm25 = [];
     for (var i = 0; i < 3; ++i) {
         let forecastinfo = response.forecast.forecastday[i].hour
         forecastinfo.forEach((item, index) => {
@@ -85,9 +89,16 @@ function visualizefutureinfo(response) {
             }
         },
     };
+    
+    if(tempchart){
+        tempchart.destory();
+    }
+    if(humiditychart){
+        humiditychart.destory();
+    }
 
-    new Chart(document.getElementById('tempchart'), templineconfig);
-    new Chart(document.getElementById('humiditychart'), humiditylineconfig);
+    tempchart = new Chart(document.getElementById('tempchart'), templineconfig);
+    humiditychart=new Chart(document.getElementById('humiditychart'), humiditylineconfig);
 }
 function visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index) {
     let mydata = [pm10, pm25, co, no2, o3, so2]
@@ -163,8 +174,15 @@ function visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index) {
         },
       };
 
-    new Chart(document.getElementById('airqualitybarchart'), barconfig);
-    new Chart(document.getElementById('airqualitydoughnutchart'), doughnutconfig);
+      if(barchart){
+        barchart.destory();
+      }
+      if(doughnutchart){
+        doughnutchart.destory();
+      }
+
+    barchart=new Chart(document.getElementById('airqualitybarchart'), barconfig);
+    doughnutchart=new Chart(document.getElementById('airqualitydoughnutchart'), doughnutconfig);
 
 }
 function getfutureinfo() {
@@ -182,24 +200,10 @@ function getfutureinfo() {
     });
 }
 
-function location_success(pos) {
-    location1 = `${pos.coords.latitude},${pos.coords.longitude}`
-    console.log(location1)
-    getcurrentinfo();
-    getfutureinfo();
-    visualizeearthmap();
-}
-
-function location_err(err) {
-    //alert(`Error occured while get your location(${err.code}: ${err.message}). location is set to Pusan`);
-    location1 = 'auto:ip';
-    getcurrentinfo();
-    getfutureinfo()
-}
 
 
 function updatecurrentairquality(gb_defra_index) {
-    $("currentairqualityicon").removeClass("fa-face-smile fa-face-meh fa-face-frown");
+    $("currentairqualityicon").removeClass("fa-face-smile fa-face-meh fa-face-frown fa-face-dizzy");
     if (gb_defra_index <= 3) {
         $("#currentairqualityicon").addClass('fa-face-smile');
         $("#currentairquality").text('Good Air!');
@@ -264,6 +268,8 @@ function updatecurrentpm(pm10,pm25){
     }
 }
 function updatecurrentdata(response) {
+    let lat = response.location.lat;
+    let lon = response.location.lon;
     let cityname = response.location.name;
     let region = response.location.region;
     let country = response.location.country;
@@ -301,9 +307,13 @@ function updatecurrentdata(response) {
     $("#currento3").text(o3);
     $("#currentso2").text(so2);
 
+    document.getElementById('pm10map').src = `https://earth.nullschool.net/#current/particulates/surface/level/overlay=pm10/orthographic=${lon},${lat},2000/loc=${lon},${lat}`
+
     updatecurrentairquality(gb_defra_index);
     updatecurrentpm(pm10,pm25);
     visualizeairquality(co, no2, o3, so2, pm25, pm10,gb_defra_index);
+
+    
 }
 
 function getcurrentinfo() {
@@ -320,22 +330,11 @@ function getcurrentinfo() {
         }
     });
 }
-
-function visualizeearthmap(){
-    let n = location1.split(',')[0]
-    let e = location1.split(',')[1]
-    document.getElementById('pm10map').src=`https://earth.nullschool.net/#current/particulates/surface/level/overlay=pm10/orthographic=${e},${n},1500/loc=${e},${n}`
-}
-
-function getcurrentlocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(location_success, location_err, location_options);
-    }
-    else {
-        location1 = 'auto:ip';
-        getcurrentinfo();
-        getfutureinfo()
-    }
+function getAirFromCountry(){
+    location1 = document.getElementById('city').value;
+    console.log(location1)
+    getcurrentinfo();
+    getfutureinfo();
 }
 
 function makecsv(response){
@@ -372,5 +371,6 @@ function downloadcsv(){
         }
     });
 }
-getcurrentlocation();
+
+document.getElementById('countrysubmit').onclick = getAirFromCountry;
 document.getElementById('download').onclick = downloadcsv;

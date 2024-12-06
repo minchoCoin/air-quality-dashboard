@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
   <nav>
     <div class="w3-sidebar w3-bar-block w3-light-gray mynav">
       <h3 class="w3-bar-item">Menu</h3>
-      <a href="index.html" class="w3-bar-item w3-button w3-green w3-hover-green">Home</a>
-      <a href="country.html" class="w3-bar-item w3-button w3-hover-green">City</a>
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-green">Home</a>
+      <a href="country.html" class="w3-bar-item w3-button w3-hover-green  w3-green">City</a>
       <a href="csv.html" class="w3-bar-item w3-button w3-hover-green">CSV</a>
       <a href="about.html" class="w3-bar-item w3-button w3-hover-green">About</a>
     </div>
@@ -30,8 +31,10 @@
     <div>
       <div class="w3-center w3-display-container mymaincontent">
         <div class="w3-center">
-          <p>download 3 day forecast data <button id="download">download</button></p>
-          
+            <p>Enter your location</p>
+            <input type="text" id="city" name="city" placeholder="Enter your city">
+            <button id="countrysubmit">submit</button>
+            <p>download 3 day forecast data <button id="download">download</button></p>
         </div>
         <div class="w3-card-4 maincard w3-padding-large">
           <p id="currentpos" class="currentinfo">Pusan, South Korea 2024-11-03 14:30</p>
@@ -99,10 +102,10 @@
 
         </div>
         <div style="width: 100%; margin-bottom: 100px;"><iframe src="https://earth.nullschool.net/#current/particulates/surface/level/overlay=pm10/orthographic" id="pm10map" width="500px" height="500px"></iframe></div>
-        <div style="width: 100%; margin-bottom: 100px;"><canvas id="tempchart"></canvas></div>
-        <div style="width: 100%; margin-bottom: 100px;"><canvas id="humiditychart"></canvas></div>
-        <div style="width: 80%; margin-bottom: 100px;"><canvas id="airqualitybarchart"></canvas></div>
-        <div style="width: 50%; margin-bottom: 100px;"><canvas id="airqualitydoughnutchart"></canvas></div>
+        <div id="tempchartdiv"style="width: 100%; margin-bottom: 100px;"><canvas id="tempchart"></canvas></div>
+        <div id="humiditychartdiv"style="width: 100%; margin-bottom: 100px;"><canvas id="humiditychart"></canvas></div>
+        <div id="barchartdiv"style="width: 80%; margin-bottom: 100px;"><canvas id="airqualitybarchart"></canvas></div>
+        <div id="doughnutchartdiv"style="width: 50%; margin-bottom: 100px;"><canvas id="airqualitydoughnutchart"></canvas></div>
         Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
     <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='https://cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
       </div>
@@ -125,8 +128,8 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
 <script src="./js/key.js"></script>
-<script src="./js/app.js"></script>
+<script src="./js/app_country.js"></script>
 
 </html>
