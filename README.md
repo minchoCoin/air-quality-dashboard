@@ -54,7 +54,7 @@ If you click on index.html, your browser will ask if you allow it to access your
 ### air quality map
 you can check the air quality map(blue regions have better air quality(pm10))
 
-![image](markdownimage/19.png)
+![image](markdownimage/19.PNG)
 
 (powered by [earth nullschool](https://earth.nullschool.net/))
 ### current total air quality level
@@ -84,12 +84,12 @@ the text color of 'good' is blue, 'moderate' is green, 'bad' is orange, 'very ba
 ### download 3 day forecast data csv file
 if you click 'download' button, you can download the weather information from today to 3days later forecast by hour
 
-![image](markdownimage/20.png)
-![image](markdownimage/21.png)
+![image](markdownimage/20.PNG)
+![image](markdownimage/21.PNG)
 
 The weather information contains time,city, country, temperature(celsius), humidity, wind_kph, wind_dir, pressure_mb, feelslike temperature, and uv
 
-![image](markdownimage/22.png)
+![image](markdownimage/22.PNG)
 
 (note: air quality forecast data is not available for free API user)
 ### chart
@@ -149,8 +149,8 @@ you can search weather information of various cities.
 2. click the submit button
 3. the page is refreshed and the information will be shown.
 
-![image](markdownimage/23.png)
-![image](markdownimage/24.png)
+![image](markdownimage/23.PNG)
+![image](markdownimage/24.PNG)
 
 ## about
 you can check the information of air pollutions.
